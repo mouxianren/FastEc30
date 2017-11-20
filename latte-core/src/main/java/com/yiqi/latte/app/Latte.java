@@ -2,7 +2,7 @@ package com.yiqi.latte.app;
 
 import android.content.Context;
 
-import java.util.WeakHashMap;
+import java.util.HashMap;
 
 /**
  * Created by moumou on 17/11/20.
@@ -14,8 +14,11 @@ public final class Latte {
         return Configurator.getInstance();
 
     }
-    private static WeakHashMap<String,Object> getConfiguration(){
+    private static HashMap<String,Object> getConfiguration(){
         return Configurator.getInstance().getLatteConfigs();
+    }
+    public static Context getApplicationContext(){
+        return (Context)getConfiguration().get(ConfigType.APPLICATION_CONTEXT.name());
     }
 
 }
